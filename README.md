@@ -4,6 +4,7 @@ Chopper, proyecto base ruby
 
 ## Preparación del ambiente
 
+````
 sudo apt-get update
 sudo apt-get install build-essential
 sudo apt-get install -y git
@@ -12,6 +13,7 @@ curl -sSL https://get.rvm.io | bash -s stable
 source ~/.rvm/scripts/rvm
 rvm install 2.2.0
 gem install bundler
+````
 
 ## Uso del proyecto
 
