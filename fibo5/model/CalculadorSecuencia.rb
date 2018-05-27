@@ -30,12 +30,12 @@ class CalculadorSecuencia
         return secuenciaInvertida
 	end
 
-	def getSoloPares(numero)
+	def getSoloPares(secuencia)
 		pares = []
 		contador = 0
 
-		for i in 0..numero - 1 do
-			resultado = @fibo.getNumero(i)
+		for i in 0..secuencia.length - 1 do
+			resultado = secuencia[i]
 
 			if resultado % 2 == 0 && resultado != 0
 				pares[contador] = resultado
@@ -46,12 +46,12 @@ class CalculadorSecuencia
 		return pares
 	end
 
-	def getSoloImpares(numero)
+	def getSoloImpares(secuencia)
 		impares = []
 		contador = 0
 
-		for i in 0..numero - 1 do
-			resultado = @fibo.getNumero(i)
+		for i in 0..secuencia.length - 1 do
+			resultado = secuencia[i]
 
 			if resultado % 2 != 0 && resultado != 0
 				impares[contador] = resultado
