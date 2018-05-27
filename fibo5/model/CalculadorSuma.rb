@@ -1,6 +1,6 @@
 require_relative './Fibonacci'
 
-class CalculadorSecuencia
+class CalculadorSuma
 
 	attr_accessor :fibo
 
@@ -8,14 +8,13 @@ class CalculadorSecuencia
 		@fibo = Fibonacci.new	
 	end
 
-	def getSecuencia(numero)
-		secuencia = []
+	def getSuma(numero)
+		total = 0
 
 		for i in 0..numero - 1 do
-            secuencia[i] = @fibo.getNumero(i)
+            total += @fibo.getNumero(i)
        	end
 
-        return secuencia
+		return total
 	end
-
 end
