@@ -13,12 +13,18 @@ get '/fibonacci/:N' do
 		secuencia = @@secuenciador.getSecuencia(numero)
 	elsif params[:sentido] == "inverso"
 		secuencia = @@secuenciador.getSecuenciaInvertida(numero)
+	else
+		halt(400)
+		return
 	end
 
 	if params[:solo] == "pares"
 		secuencia = @@secuenciador.getSoloPares(secuencia)
 	elsif params[:solo] == "impares"
 		secuencia = @@secuenciador.getSoloImpares(secuencia)
+	elsif !params[:solo].nil?
+		halt(400)
+		return
 	end
 
 	json({ fibonacci: { limite: numero, lista: secuencia }})
@@ -31,12 +37,18 @@ get '/fibonacci/:N/lista' do
 		secuencia = @@secuenciador.getSecuencia(numero)
 	elsif params[:sentido] == "inverso"
 		secuencia = @@secuenciador.getSecuenciaInvertida(numero)
+	else
+		halt(400)
+		return
 	end
 
 	if params[:solo] == "pares"
 		secuencia = @@secuenciador.getSoloPares(secuencia)
 	elsif params[:solo] == "impares"
 		secuencia = @@secuenciador.getSoloImpares(secuencia)
+	elsif !params[:solo].nil?
+		halt(400)
+		return
 	end
 
 	json({ fibonacci: { limite: numero, lista: secuencia }})
@@ -51,7 +63,14 @@ get '/fibonacci/:N/suma' do
 		suma = @@sumador.getSumaPares(numero)
 	elsif params[:solo] == "impares"
 		suma = @@sumador.getSumaImpares(numero)
+	else
+		halt(400)
+		return
 	end
 
 	json({ fibonacci: { limite: numero, suma: suma }})
+end
+
+error 400 do
+	json({error: "Opcion no Valida"})
 end
